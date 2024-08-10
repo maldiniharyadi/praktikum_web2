@@ -35,21 +35,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($mahasiswa as $mahasiswa)
+                            @foreach ($mahasiswa as $mhs)
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $mahasiswa->user->nama }}</td>
-                                <td>{{ $mahasiswa->npm }}</td>
-                                <td>{{ $mahasiswa->jurusan }}</td>
-                                <td>{{ $mahasiswa->tempat_lahir }},
-                                    {{ Carbon\carbon::parse($mahasiswa->tanggal_lahir->format('d-m-Y')) }}</td>
+                                <td>{{ $mhs->user->nama }}</td>
+                                <td>{{ $mhs->npm }}</td>
+                                <td>{{ $mhs->jurusan }}</td>
+                                <td>{{ $mhs->tempat_lahir }},
+                                    {{ Carbon\carbon::parse($mhs->tanggal_lahir->format('d-m-Y')) }}</td>
                                 <td>
-                                    <form action="{{ route('mahasiswa.delete', $mahasiswa->id) }}" method="post">
+                                    <form action="{{ route('mahasiswa.delete', $mhs->id) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}"
-                                            class="btn btn-sm btn-primary"> Detail Data</a>
-                                        <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}"
-                                            class="btn btn-sm btn-info">
+                                        <a href="{{ route('mahasiswa.edit', $mhs->id) }}" class="btn btn-sm btn-primary">
+                                            Detail Data</a>
+                                        <a href="{{ route('mahasiswa.edit', $mhs->id) }}" class="btn btn-sm btn-info">
                                             Edit Data</a>
                                     </form>
                                 </td>

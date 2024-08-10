@@ -13,9 +13,7 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        dd(); // This will dump the data and stop execution
         $mahasiswa = Mahasiswa::latest()->get();
-
         return view('mahasiswa.index', compact('mahasiswa'));
     }
 
