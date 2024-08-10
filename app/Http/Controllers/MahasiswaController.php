@@ -13,7 +13,9 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
+        dd(); // This will dump the data and stop execution
         $mahasiswa = Mahasiswa::latest()->get();
+
         return view('mahasiswa.index', compact('mahasiswa'));
     }
 
@@ -46,7 +48,7 @@ class MahasiswaController extends Controller
 
     public function update(Request $request, $id)
     {
-        $mahasiswa = Mahasiswa::fingOrfail($id);
+        $mahasiswa = Mahasiswa::findOrFail($id);
         $user = $mahasiswa->user;
         $input = $request->all();
         if ($request->foto) {

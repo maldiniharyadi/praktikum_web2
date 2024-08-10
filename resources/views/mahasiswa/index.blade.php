@@ -7,9 +7,18 @@
                     <div class="col-md">
                         <p>Data Mahasiswa</p>
                     </div>
+                    <div class="col-md text-right">
+                        <form action="{{ route('mahasiswa.search') }}">
+                            <div class="form-group">
+                                <input type="text" name="keyword" id="" class="form-control"
+                                    placeholder="Cari berdasarkan NPM" value="{{ old('keyword') }}">
+                            </div>
+                        </form>
+                    </div>
                     <div class="col-md">
                         <div class="float-end">
                             <a href="{{ Route('mahasiswa.create') }}" class="btn btn-primary">Tambah Data</a>
+                            <a href="{{ Route('mahasiswa.print') }}" class="btn btn-primary" target="_blank">Cetak Data</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +48,8 @@
                                         @method('delete')
                                         <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}"
                                             class="btn btn-sm btn-primary"> Detail Data</a>
-                                        <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}" class="btn btn-sm btn-info">
+                                        <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}"
+                                            class="btn btn-sm btn-info">
                                             Edit Data</a>
                                     </form>
                                 </td>
